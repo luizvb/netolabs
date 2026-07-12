@@ -25,7 +25,7 @@ const projects = [
     description:
       "Turns real conversations into clear coaching, insights, and follow-through.",
     stack: "TypeScript / Audio / AI",
-    href: "https://voxa.lvtec.com.br",
+    href: "https://voxa.netolabs.dev",
     github: "https://github.com/luizvb/voxa",
     accent: "image",
   },
@@ -53,7 +53,7 @@ const projects = [
     description:
       "Creates deeply personalized cold outreach from real prospect context.",
     stack: "Next.js / PGlite / AI",
-    href: "https://pitch-perfect-ai-blue.vercel.app",
+    href: "https://pitch.netolabs.dev",
     github: "https://github.com/luizvb/pitch-perfect-ai",
     accent: "wave",
   },
@@ -63,7 +63,7 @@ const projects = [
     description:
       "Generates statistically useful, compliant test data for product teams.",
     stack: "Next.js / PGlite / Playwright",
-    href: "https://mockdata-ai.vercel.app",
+    href: "https://mockdata.netolabs.dev",
     github: "https://github.com/luizvb/mockdata-ai",
     accent: "grid",
   },
@@ -73,7 +73,7 @@ const projects = [
     description:
       "Finds sentiment, risk, and next actions inside raw customer feedback.",
     stack: "Google ADK / Next.js / AI",
-    href: "https://feedbackflow-ai-mvp.vercel.app",
+    href: "https://feedback.netolabs.dev",
     github: "https://github.com/luizvb/feedbackflow-ai-mvp",
     accent: "orbit",
   },
