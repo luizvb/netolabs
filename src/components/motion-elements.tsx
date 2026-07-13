@@ -90,7 +90,14 @@ type Project = {
   readonly description: string;
   readonly stack: string;
   readonly href?: string;
-  readonly github: string;
+  readonly github?: string;
+  readonly image?: {
+    readonly src: string;
+    readonly alt: string;
+    readonly width: number;
+    readonly height: number;
+    readonly objectPosition?: string;
+  };
   readonly accent: string;
 };
 
@@ -101,7 +108,7 @@ export function ProjectGrid({ projects }: { projects: readonly Project[] }) {
     <div className="project-grid">
       {projects.map((project, index) => (
         <motion.article
-          className={`project-card project-card-${index + 1}`}
+          className="project-card"
           key={project.name}
           initial={reduce ? false : { opacity: 0, y: 34 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -113,13 +120,19 @@ export function ProjectGrid({ projects }: { projects: readonly Project[] }) {
           }}
           whileHover={reduce ? undefined : { y: -6 }}
         >
-          <div className={`project-art art-${project.accent}`} aria-hidden="true">
-            {project.accent === "image" ? (
+          <div
+            className={`project-art art-${project.accent}`}
+            aria-hidden={project.image ? undefined : true}
+          >
+            {project.image ? (
               <Image
-                src="/images/voxa-og.webp"
-                alt=""
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
+                src={project.image.src}
+                alt={project.image.alt}
+                width={project.image.width}
+                height={project.image.height}
+                loading="lazy"
+                sizes="(max-width: 640px) calc(100vw - 2rem), 46vw"
+                style={{ objectPosition: project.image.objectPosition ?? "center" }}
               />
             ) : (
               <span>{project.name.slice(0, 2).toUpperCase()}</span>
@@ -134,14 +147,16 @@ export function ProjectGrid({ projects }: { projects: readonly Project[] }) {
                 </span>
               </div>
               <div className="project-links">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${project.name} on GitHub`}
-                >
-                  <GithubLogo size={19} weight="regular" />
-                </a>
+                {project.github ? (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${project.name} on GitHub`}
+                  >
+                    <GithubLogo size={19} weight="regular" aria-hidden="true" />
+                  </a>
+                ) : null}
                 {project.href ? (
                   <a
                     href={project.href}
@@ -149,7 +164,7 @@ export function ProjectGrid({ projects }: { projects: readonly Project[] }) {
                     rel="noreferrer"
                     aria-label={`Open ${project.name}`}
                   >
-                    <ArrowUpRight size={19} weight="bold" />
+                    <ArrowUpRight size={19} weight="bold" aria-hidden="true" />
                   </a>
                 ) : null}
               </div>
