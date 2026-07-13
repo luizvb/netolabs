@@ -283,6 +283,61 @@ a:focus-visible {
   line-height: 1.65;
 }
 
+.lifecycle-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lifecycle-legend > p {
+  margin: 0;
+  color: var(--ink);
+}
+
+.lifecycle-legend ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.75rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lifecycle-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.lifecycle-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.lifecycle-focus {
+  color: #5f7b2d;
+}
+
+.lifecycle-tool {
+  color: #667068;
+}
+
+.lifecycle-experiment {
+  color: #8b7044;
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -390,6 +445,7 @@ a:focus-visible {
 }
 
 .project-topline > p,
+.project-meta > p,
 .project-stack {
   margin: 0;
   color: var(--muted);
@@ -397,6 +453,30 @@ a:focus-visible {
   font-size: 0.66rem;
   text-transform: uppercase;
   letter-spacing: 0.09em;
+}
+
+.project-meta {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.project-meta > p {
+  margin: 0;
+}
+
+.project-lifecycle {
+  flex: none;
+  padding: 0.28rem 0.48rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.58rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .project-links {
@@ -691,6 +771,15 @@ footer p {
     font-size: clamp(2.65rem, 13vw, 4.4rem);
   }
 
+  .lifecycle-legend {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .lifecycle-legend ul {
+    justify-content: flex-start;
+  }
+
   .project-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -700,6 +789,12 @@ footer p {
   .project-card-1,
   .project-card-6 {
     grid-column: 1;
+  }
+
+  .project-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .project-art {

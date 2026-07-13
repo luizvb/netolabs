@@ -86,6 +86,7 @@ export function HeroVisual() {
 type Project = {
   readonly name: string;
   readonly kind: string;
+  readonly lifecycle: "focus" | "tool" | "experiment";
   readonly description: string;
   readonly stack: string;
   readonly href?: string;
@@ -126,7 +127,12 @@ export function ProjectGrid({ projects }: { projects: readonly Project[] }) {
           </div>
           <div className="project-body">
             <div className="project-topline">
-              <p>{project.kind}</p>
+              <div className="project-meta">
+                <p>{project.kind}</p>
+                <span className={`project-lifecycle lifecycle-${project.lifecycle}`}>
+                  {project.lifecycle}
+                </span>
+              </div>
               <div className="project-links">
                 <a
                   href={project.github}

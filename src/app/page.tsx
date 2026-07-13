@@ -7,77 +7,7 @@ import {
   Reveal,
   VentureSteps,
 } from "@/components/motion-elements";
-
-const projects = [
-  {
-    name: "Forge",
-    kind: "AI infrastructure",
-    description:
-      "Build, ground, and evaluate dependable AI agents with Google ADK.",
-    stack: "TypeScript / Google ADK / Neon",
-    href: "https://forge.netolabs.dev",
-    github: "https://github.com/luizvb/netolabs-forge",
-    accent: "signal",
-  },
-  {
-    name: "VOXA",
-    kind: "Conversation intelligence",
-    description:
-      "Turns real conversations into clear coaching, insights, and follow-through.",
-    stack: "TypeScript / Audio / AI",
-    href: "https://voxa.netolabs.dev",
-    github: "https://github.com/luizvb/voxa",
-    accent: "image",
-  },
-  {
-    name: "LegacyBridge",
-    kind: "Enterprise infrastructure",
-    description:
-      "A secure bridge between modern AI agents and legacy REST and SOAP systems.",
-    stack: "Go / Redis / LangChain",
-    github: "https://github.com/luizvb/legacybridge",
-    accent: "lines",
-  },
-  {
-    name: "Logr",
-    kind: "Developer tools",
-    description:
-      "A fast, readable log tailer that makes structured output useful at a glance.",
-    stack: "Go / CLI / DevTools",
-    github: "https://github.com/luizvb/logr",
-    accent: "mono",
-  },
-  {
-    name: "Pitch Perfect AI",
-    kind: "Sales intelligence",
-    description:
-      "Creates deeply personalized cold outreach from real prospect context.",
-    stack: "Next.js / PGlite / AI",
-    href: "https://pitch.netolabs.dev",
-    github: "https://github.com/luizvb/pitch-perfect-ai",
-    accent: "wave",
-  },
-  {
-    name: "MockData AI",
-    kind: "Developer platform",
-    description:
-      "Generates statistically useful, compliant test data for product teams.",
-    stack: "Next.js / PGlite / Playwright",
-    href: "https://mockdata.netolabs.dev",
-    github: "https://github.com/luizvb/mockdata-ai",
-    accent: "grid",
-  },
-  {
-    name: "FeedbackFlow",
-    kind: "Revenue intelligence",
-    description:
-      "Finds sentiment, risk, and next actions inside raw customer feedback.",
-    stack: "Google ADK / Next.js / AI",
-    href: "https://feedback.netolabs.dev",
-    github: "https://github.com/luizvb/feedbackflow-ai-mvp",
-    accent: "orbit",
-  },
-] as const;
+import { projects } from "@/data/projects";
 
 const steps = [
   {
@@ -156,9 +86,19 @@ export default function Home() {
           <div className="section-heading stacked-heading">
             <h2>Built in the lab.<br />Tested in the world.</h2>
             <p>
-              A working portfolio across AI infrastructure, developer tools,
-              conversation intelligence, and revenue operations.
+              A portfolio of focused ventures, useful tools, and bounded
+              experiments across applied AI and developer infrastructure.
             </p>
+          </div>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <div className="lifecycle-legend" aria-label="Portfolio lifecycle legend">
+            <p>Portfolio snapshot · July 2026</p>
+            <ul>
+              <li><span className="lifecycle-dot lifecycle-focus" />Focus · active company building</li>
+              <li><span className="lifecycle-dot lifecycle-tool" />Tool · reusable capability</li>
+              <li><span className="lifecycle-dot lifecycle-experiment" />Experiment · testing demand</li>
+            </ul>
           </div>
         </Reveal>
         <ProjectGrid projects={projects} />
