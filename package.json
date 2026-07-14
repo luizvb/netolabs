@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "stripe:catalog": "node scripts/stripe-catalog.mjs",
+    "stripe:portal": "node scripts/stripe-portal.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
